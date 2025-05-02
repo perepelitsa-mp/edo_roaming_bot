@@ -11,38 +11,12 @@ Roaming Bot is an automated script that interacts with the Diadoc web interface 
 - Selenium
 - ChromeDriver
 - FFmpeg (для записи видео)
-- Другие зависимости, указанные в `requirements.txt`
 
 ## Requirements
 - Python 3.9
 - Selenium
 - ChromeDriver
 - FFmpeg (for video recording)
-- Other dependencies listed in `requirements.txt`
-
-## Установка
-1. Клонируйте репозиторий:
-   ```bash
-   git clone <repository-url>
-   cd <repository-directory>
-   ```
-2. Установите зависимости:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Убедитесь, что ChromeDriver и FFmpeg установлены и доступны в системе.
-
-## Installation
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-   cd <repository-directory>
-   ```
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Ensure that ChromeDriver and FFmpeg are installed and available in the system.
 
 ## Настройка
 1. Создайте файл `settings.json` в корневой директории проекта со следующими параметрами:
