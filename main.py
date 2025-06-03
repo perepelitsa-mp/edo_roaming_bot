@@ -111,9 +111,10 @@ while True:
             error_message = "Ошибка при вводе данных для контрагента"
             raise logging.info(traceback.format_exc())
         driver.implicitly_wait(15)
-        if driver.find_element(By.XPATH, "//p[contains(text(), 'Заявка отправлена')]"):
+        sent_elements = driver.find_elements(By.XPATH, "//p[contains(text(), 'Заявка отправлена')]")
+        if sent_elements:
             status = True
-            logging.info(f"Заявка отправлена")
+            logging.info("Заявка отправлена")
         else:
             error_message = "После ввода всех данных заявка не была отправлена."
             status = False
@@ -163,17 +164,15 @@ except requests.exceptions.RequestException as e:
 
 
 if status:
-    error = {"status": "error", "message": "Error message"}
-    file = json.dumps(error)
-    error = open(f"{path}/finish.json", "w")
-    error.write(file)
-    error.close()
+    result = {"status": "error", "message": "Error message"}
+    result_json = json.dumps(result)
+    with open(f"{path}/finish.json", "w") as f:
+        f.write(result_json)
 else:
-    error = {"status": "error", "message": "Error message"}
-    file = json.dumps(error)
-    json = open(f"{path}/error.json", "w")
-    json.write(file)
-    json.close()
+    result = {"status": "error", "message": "Error message"}
+    result_json = json.dumps(result)
+    with open(f"{path}/error.json", "w") as f:
+        f.write(result_json)
 
 time.sleep(10)
 
